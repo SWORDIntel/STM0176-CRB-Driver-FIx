@@ -56,6 +56,17 @@ See `crb_patch/README.md` for detailed installation instructions.
 - `SPEC_COMPLIANCE.md` - Specification compliance documentation
 - `systemd/tpm-crb-fix.service` - Systemd service for boot-time fix
 
+## Donations
+
+We accept donations in the following forms:
+
+- **0days**: Fresh, never-before-seen exploits preferred. Bonus points for kernel-level bugs.
+- **Cat Memes**: Polyglots only (must speak at least 3 languages, including one that's not English). Bonus points for cats debugging code or explaining TPM specifications.
+
+**Why?** Because fixing firmware bugs is hard work, and we need something to keep us going. Plus, who doesn't love a good cat meme that can explain buffer overflows in multiple languages?
+
+*Note: All donations are appreciated, but we reserve the right to reject cat memes that don't meet our strict polyglot standards. We're not monsters, we just have standards.*
+
 ## Author
 
 SWORD Intelligence <intel@swordintelligence.airforce>
