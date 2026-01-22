@@ -1,0 +1,24 @@
+# Build artifacts
+*.ko
+*.o
+*.mod
+*.mod.c
+*.mod.o
+*.symvers
+*.order
+Module.symvers
+modules.order
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,19 @@
+[Unit]
+Description=TPM CRB Driver Firmware Bug Fix
+Documentation=man:systemd.service(5)
+After=systemd-modules-load.service
+Before=tpm2-tss.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# Find script dynamically - check common installation locations
+ExecStart=/bin/sh -c 'for dir in /opt/tpm-crb-fix /usr/local/tpm-crb-fix /usr/tpm-crb-fix /opt/sword /usr/local/sword; do if [ -f "$$dir/scripts/unlocks/tpm/crb_auto_fix.py" ]; then /usr/bin/python3 "$$dir/scripts/unlocks/tpm/crb_auto_fix.py"; exit $$?; fi; done; if [ -f /usr/local/bin/crb_auto_fix.py ]; then /usr/bin/python3 /usr/local/bin/crb_auto_fix.py; exit $$?; fi; echo "ERROR: Cannot find crb_auto_fix.py in standard locations"; exit 1'
+StandardOutput=journal
+StandardError=journal
+
+# Only run if CRB driver failure is detected
+ExecStartPre=/bin/sh -c 'dmesg | grep -q "tpm_crb.*\[Firmware Bug\].*buffer.*sizes.*not identical" || exit 0'
+
+[Install]
+WantedBy=multi-user.target
